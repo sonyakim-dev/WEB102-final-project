@@ -5,6 +5,8 @@ import Home from "./routes/Home";
 import Event from "./routes/Event";
 import Create from "./routes/Create";
 import Posts from "./routes/Posts";
+import PostDetail from "./routes/PostDetail";
+import EditPost from "./routes/EditPost";
 import styles from "./style";
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
             <Route path="/event/:id" element={<Event />} />
             <Route path="/create" element={<Create />} />
             <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/detail/:id" element={<PostDetail />} />
+            <Route path="/posts/detail/edit/:id" element={<EditPost />} />
             <Route path="*" element={<div>Error</div>} />
           </Route>
         </Routes>

@@ -44,8 +44,10 @@ function Event() {
           /> */}
           <h1 className="font-bold m-10">{eventDetail.name}</h1>
           <img className="w-full" src={eventDetail.images[0].url} />
+          <br />
+          <h2>ID: {eventDetail.id}</h2>
           <div className="">
-            {eventDetail.externalLinks.youtube && (
+            {eventDetail?.externalLinks?.youtube && (
               <a
                 href={eventDetail.externalLinks.youtube[0].url}
                 target="_blank"
@@ -53,7 +55,7 @@ function Event() {
                 <button className="m-2 text-white">Youtube</button>
               </a>
             )}
-            {eventDetail.externalLinks.homepage && (
+            {eventDetail?.externalLinks?.homepage && (
               <a
                 href={eventDetail.externalLinks.homepage[0].url}
                 target="_blank"

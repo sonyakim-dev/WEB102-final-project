@@ -18,17 +18,14 @@ function Home() {
     setIsLoading(true);
     try {
       const keyword = input ? "keyword=" + input : "";
-      const json = await (
-        await fetch(
-          `https://app.ticketmaster.com/discovery/v2/attractions?${keyword}&apikey=${TM_API_KEY}`
-        )
-      ).json();
-      if (!json) {
-        throw new Error(response.status);
-      }
-      console.log(json._embedded.attractions);
-      setEvents((prev) => json._embedded.attractions);
-      setIsLoading(false);
+      const response = await fetch(
+        `https://app.ticketmaster.com/discovery/v2/attractions?${keyword}&apikey=${TM_API_KEY}`
+      );
+      const json = await response.json();
+      if (json?._embedded?.attractions) {
+        setEvents((prev) => json._embedded.attractions);
+        setIsLoading(false);
+      } else throw new Error(response.status);
     } catch (error) {
       console.log(
         "Error happend during fetchEvents() in Home.jsx.\
@@ -41,7 +38,7 @@ function Home() {
   };
   useEffect(() => {
     fetchEvents();
-    // return () => controller.abort();
+    return () => controller.abort();
   }, []);
 
   return (
@@ -59,7 +56,7 @@ function Home() {
           className="bg-gray-100 rounded-full m-1 hover:bg-gray-500"
           onClick={() => fetchEvents(searchInput)}
         >
-          <FiSearch />
+          <FiSearch style={{color: "black"}}/>
         </button>
       </div>
       {isError ? (
