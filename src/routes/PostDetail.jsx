@@ -105,7 +105,7 @@ function PostDetail() {
           <br />
 
           <img src={userPost.image} />
-          <p>{userPost.content}</p>
+          <p className="mx-5 mb-3 mt-1">{userPost.content}</p>
 
           <div>
             <Link to={`/posts/detail/edit/${id}`}>
@@ -149,7 +149,7 @@ function PostDetail() {
           </div>
           <br />
 
-          <div className="relative flex flex-row items-center">
+          <div className="relative flex flex-row items-center mb-2">
             <input
               className="pt-2 pb-2 pl-3 h-11 max-w-[500px] bg-slate-100 rounded-lg placeholder:text-slate-600 font-medium pr-20"
               type="text"

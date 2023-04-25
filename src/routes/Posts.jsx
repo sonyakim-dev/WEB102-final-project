@@ -49,6 +49,7 @@ function Posts() {
               onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             />
           </div>
+          <br/>
           <div className="box-border max-w-7xl mx-4 sm:columns-1 md:columns-2 lg:columns-3 xl:columns-4">
             {userPost
               .filter((prev) =>
